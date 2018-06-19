@@ -36,7 +36,7 @@
       <p>博客标题:{{blog.title}}</p>
       <p>博客内容:{{blog.content}}</p>
       <p>分类:{{blog.checkedNames}}</p>
-      <p>作者:{{blog.author}}</p>0
+      <p>作者:{{blog.author}}</p>
     </div>
 
   </div>
@@ -59,7 +59,19 @@
     },
     methods:{
       postData(){
-        console.log('djskjdks')
+        this.$http.post('http://jsonplaceholder.typicode.com/posts',{
+          title:this.blog.title,
+          body:this.blog.content,
+          userId:1,
+          id:2
+        })
+        .then(function(res){
+          console.log(res)
+        })
+        .catch(function (response) {
+          console.log(response);
+        });
+
       }
     }
   }
