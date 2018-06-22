@@ -2,19 +2,21 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import axios from 'axios'
+import router from './router'
 //import vueResource from 'vue-resource'
 //Vue.use(vueResource)
-import axios from 'axios'
+
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
 // 注册一个全局自定义指令
-// Vue.directive('rainbow',{
-//   bind(el){
-//     el.style.color = 'red'
-//   }
-// })
+/*Vue.directive('rainbow',{
+  bind(el){
+    el.style.color = 'red'
+  }
+})*/
 
 Vue.directive('theme',{
   bind(el,binding){
@@ -29,19 +31,19 @@ Vue.directive('theme',{
   }
 })
 
-// 注册一个全局的过滤器
-// Vue.filter('to-upCass',function(value){
-//   return value.toUpperCase();
-// })
-// Vue.filter('snippet',function(value){
-//   return value.slice(0,40);
-// })
+//注册一个全局的过滤器
+/*Vue.filter('to-upCass',function(value){
+  return value.toUpperCase();
+})
+Vue.filter('snippet',function(value){
+  return value.slice(0,40);
+})*/
 
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  axios,
+  axios,router,
   components: { App },
   template: '<App/>'
 })

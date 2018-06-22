@@ -3,7 +3,7 @@
     <h1>我是博客总览页面</h1>
     <div class="search"><input v-model="search" type="text" placeholder="搜索"></div>
     <div v-for="blog in filterBlogs" class="blogInfo">
-        <h4 v-rainbow>{{blog.title | to-upCass}}</h4>
+      <router-link v-bind:to=" '/blog/' + blog.id"><h4 v-rainbow>{{blog.title | to-upCass}}</h4></router-link>
         <article>
           {{blog.body | snippet}}
         </article>
