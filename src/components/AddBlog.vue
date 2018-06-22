@@ -1,8 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h3>哈哈哈哈</h3>
-    <form>
+    <form v-if="submited">
       <ul>
         <li>
           <label>标题:</label>
@@ -30,7 +29,9 @@
       </ul>
       <button @click.prevent="postData">添加</button>
     </form>
-
+    <div v-if="!submited">
+      <h2>添加成功！</h2>
+    </div>
     <hr>
     <div id="preview">
       <p>博客标题:{{blog.title}}</p>
@@ -54,19 +55,22 @@
           checkedNames:[],
           author:''
         },
-        authors:['jolin','jaychou','ella','selina']
+        authors:['jolin','jaychou','ella','selina'],
+        submited:true
       }
     },
     methods:{
       postData(){
-        this.$http.post('http://jsonplaceholder.typicode.com/posts',{
-          title:this.blog.title,
-          body:this.blog.content,
-          userId:1,
-          id:2
+        var that = this;
+        that.$http.post('http://jsonplaceholder.typicode.com/posts',{
+            title:this.blog.title,
+            body:this.blog.content,
+            userId:1,
+            id:2
         })
         .then(function(res){
-          console.log(res)
+          console.log('成功啦',res);
+          that.submited = false
         })
         .catch(function (response) {
           console.log(response);
