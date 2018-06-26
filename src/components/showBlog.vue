@@ -57,6 +57,7 @@
 </script>
 
 <style>
+
 h1,.search{text-align: center}
 .blogInfo{ background-color: #eee;width: 600px;padding:20px;margin: 0 auto 20px auto}
 .blogInfo h4{margin: 0;}

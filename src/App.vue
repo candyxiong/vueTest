@@ -16,6 +16,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "assets/variable.scss";
 
+  body{
+    //background: $background;
+  }
 </style>
